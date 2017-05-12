@@ -1,0 +1,107 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>菸害遊戲網</title>
+<!-- TemplateEndEditable -->
+<script type="text/javascript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+</script>
+<link href="../body1.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+<!--
+body {
+	background-image: url();
+	background-color: #F1F2E1;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+-->
+</style>
+<script src="../Scripts/AC_RunActiveContent.js" type="text/javascript"></script>
+<!-- TemplateBeginEditable name="head" --><!-- TemplateEndEditable -->
+</head>
+
+<body onLoad="MM_preloadImages('../images/index_r2_c42.gif','../images/index_r3.jpg','../images/title1_r1_c1.gif','../images/title1_r1_c2.gif','../images/title1_r1_c3.gif','../images/title1_r1_c4.gif','../images/title1_r1_c5.gif','../images/title1_r1_c6.gif','../images/title1_r1_c7.gif','../images/index1_11.gif')">
+<table width="41%" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td align="center"><script type="text/javascript">
+AC_FL_RunContent( 'codebase','http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,28,0','width','860','height','130','src','title','quality','high','pluginspage','http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash','movie','title' ); //end AC code
+</script><noscript><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,28,0" width="860" height="130">
+      <param name="movie" value="title.swf">
+      <param name="quality" value="high">
+      <embed src="title.swf" quality="high" pluginspage="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="860" height="130"></embed>
+    </object></noscript></td>
+  </tr>
+  <tr>
+    <td align="center" bgcolor="#000066"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td><a href="dindex_1.html" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image9','','../images/title1_r1_c1.gif',1)"><img src="../images/title_r1_c1.gif" alt="認識菸害" name="Image9" width="122" height="30" border="0"></a></td>
+        <td><a href="dindex_2.html" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image4','','../images/title1_r1_c2.gif',1)"><img src="../images/title_r1_c2.gif" alt="反菸拒菸" name="Image4" width="123" height="30" border="0"></a></td>
+        <td><a href="dindex_3.html" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image5','','../images/title1_r1_c3.gif',1)"><img src="../images/title_r1_c3.gif" alt="菸害防制法" name="Image5" width="123" height="30" border="0"></a></td>
+        <td><a href="dindex_4.html" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image6','','../images/title1_r1_c4.gif',1)"><img src="../images/title_r1_c4.gif" alt="戒菸技巧" name="Image6" width="123" height="30" border="0"></a></td>
+        <td><a href="dindex.html" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image7','','../images/title1_r1_c5.gif',1)"><img src="../images/title_r1_c5.gif" alt="練功區" name="Image7" width="123" height="30" border="0"></a></td>
+        <td><a href="dindex1.html" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image8','','../images/title1_r1_c6.gif',1)"><img src="../images/title_r1_c6.gif" alt="挑戰區" name="Image8" width="123" height="30" border="0"></a></td>
+        <td><a href="index.html" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image10','','../images/title1_r1_c7.gif',1)"><img src="../images/title_r1_c7.gif" alt="回首頁" name="Image10" width="123" height="30" border="0"></a></td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td align="center" bgcolor="#FFFFFF"><table width="100%" border="0" cellspacing="0" cellpadding="5">
+      <tr>
+        <td width="95%"><!-- TemplateBeginEditable name="flash" -->flash<!-- TemplateEndEditable --></td>
+        <td width="5%" valign="top"><a href="#" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image11','','../images/index1_11.gif',1)"><img src="../images/index1_09.gif" alt="登入" name="Image11" width="37" height="21" border="0"></a></td>
+      </tr>
+      <tr>
+        <td colspan="2" align="center"><!-- TemplateBeginEditable name="word" -->word<!-- TemplateEndEditable --></td>
+        </tr>
+      
+    </table>      </td>
+  </tr>
+  <tr>
+    <td align="center" height="2" bgcolor="#FFFFFF"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td bgcolor="#003366"></td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td align="center"><table width="100%" border="0" align="center" cellpadding="5" cellspacing="0">
+        <tr>
+          <td width="9%" align="center"><a href="#"><img src="../images/dindex1_r21_c2.jpg" alt="通過A+無障礙網頁檢測" width="88" height="31" border="0"></a></td>
+          <td width="86%" align="center"><a href="../dindex.html" title="練功區">練功區</a><span class="td2">　｜　</span><a href="../dindex1.html" title="挑戰區">挑戰區</a><span class="td2">　｜　</span><a href="../index.html" title="回首頁">回首頁</a></td>
+          <td width="5%" align="center"><a href="#"><img src="../images/dindex1_r21_c13.jpg" alt="跳出新視窗-我的E政府" width="38" height="39" border="0"></a></td>
+        </tr>
+        
+        <tr>
+          <td colspan="3" align="center">30210 新竹縣竹北市光明七街一號 No.1,Guang-ming 7th.St. Chu-pei ,Hsin-Chu County , Taiwan , R.O.C TEL:03-5518160(總機) </td>
+        </tr>
+        <tr>
+          <td colspan="3" align="center">新竹縣衛生局 Public Health Bureau, Hsin-Chu County </td>
+        </tr>
+      </table>    </td>
+  </tr>
+</table>
+</body>
+</html>

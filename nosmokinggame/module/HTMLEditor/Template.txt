@@ -1,0 +1,227 @@
+<STYLE TYPE="text/css"> TABLE#tblCoolbar { BORDER-RIGHT: buttonshadow 1px solid; PADDING-RIGHT: 1px; BORDER-TOP: buttonhighlight 1px solid; PADDING-LEFT: 1px; PADDING-BOTTOM: 1px; BORDER-LEFT: buttonhighlight 1px solid; COLOR: menutext; PADDING-TOP: 1px; BORDER-BOTTOM: buttonshadow 1px solid; BACKGROUND-COLOR: buttonface }
+	.cbtn { BORDER-RIGHT: buttonface 1px solid; BORDER-TOP: buttonface 1px solid; BORDER-LEFT: buttonface 1px solid; BORDER-BOTTOM: buttonface 1px solid; HEIGHT: 18px }
+	.txtbtn { FONT-SIZE: 70%; COLOR: menutext; FONT-FAMILY: tahoma }
+	</STYLE>
+<script LANGUAGE="jscript">
+function button_over_<%=ID%>(eButton)
+	{
+	eButton.style.backgroundColor = "#B5BDD6";
+	eButton.style.borderColor = "darkblue darkblue darkblue darkblue";
+	}
+function button_out_<%=ID%>(eButton)
+	{
+	eButton.style.backgroundColor = "threedface";
+	eButton.style.borderColor = "threedface";
+	}
+function button_down_<%=ID%>(eButton)
+	{
+	eButton.style.backgroundColor = "#8494B5";
+	eButton.style.borderColor = "darkblue darkblue darkblue darkblue";
+	}
+function button_up_<%=ID%>(eButton)
+	{
+	eButton.style.backgroundColor = "#B5BDD6";
+	eButton.style.borderColor = "darkblue darkblue darkblue darkblue";
+	eButton = null; 
+	}
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+var isHTMLMode_<%=ID%>=false
+var bShow = false
+function cmdExec_<%=ID%>(cmd,opt) 
+	{
+  	if (isHTMLMode_<%=ID%>){alert("Please uncheck 'Edit HTML'");return;}
+  	idContent_<%=ID%>.focus()
+  	idContent_<%=ID%>.document.execCommand(cmd,bShow,opt);
+  	bShow=false;
+  	EditTextCopy_<%=ID%>();
+	}
+function EditTextCopy_<%=ID%>()
+	{
+	if( isHTMLMode_<%=ID%> )
+	{
+		document.body.all('<%=ID%>').value = idContent_<%=ID%>.innerText;
+	}
+	else
+	{
+		document.body.all('<%=ID%>').value = idContent_<%=ID%>.innerHTML;
+	}
+	}
+function setMode_<%=ID%>(bMode)
+	{
+  	isHTMLMode_<%=ID%> = bMode;
+  	if(isHTMLMode_<%=ID%>) idContent_<%=ID%>.innerText = idContent_<%=ID%>.innerHTML ;
+	else idContent_<%=ID%>.innerHTML = idContent_<%=ID%>.innerText ;
+	}
+function createLink_<%=ID%>()
+	{
+	if (isHTMLMode_<%=ID%>){alert("Please uncheck 'Edit HTML'");return;}
+	cmdExec_<%=ID%>("CreateLink");
+	}
+function insertImage_<%=ID%>()
+	{
+	if (isHTMLMode_<%=ID%>){alert("Please uncheck 'Edit HTML'");return;}
+	bShow=true;
+	cmdExec_<%=ID%>("InsertImage");
+	}
+function insertRuler_<%=ID%>()
+	{
+	if (isHTMLMode_<%=ID%>){alert("Please uncheck 'Edit HTML'");return;}
+	cmdExec_<%=ID%>("InsertHorizontalRule","");
+	}
+function foreColor_<%=ID%>()
+	{
+	var arr = showModalDialog("<%=module_path%>/HTMLEditor/selcolor.htm","","font-family:Verdana; font-size:10; dialogWidth:40em; dialogHeight:50em" );
+	if (arr != null) cmdExec_<%=ID%>("ForeColor",arr);	
+	}
+
+</script>
+<table id="tblCoolbar" width="100%" height="100%" cellpadding="0" cellspacing="0">
+	<tr valign="center">
+		<td colspan="16" class="Normal">
+			<select onchange="cmdExec_<%=ID%>('formatBlock',this[this.selectedIndex].value);this.selectedIndex=0">
+				<option selected>Style</option>
+				<option value="Normal">Normal</option>
+				<option value="Heading 1">Heading 1</option>
+				<option value="Heading 2">Heading 2</option>
+				<option value="Heading 3">Heading 3</option>
+				<option value="Heading 4">Heading 4</option>
+				<option value="Heading 5">Heading 5</option>
+				<option value="Address">Address</option>
+				<option value="Formatted">Formatted</option>
+				<option value="Definition Term">Definition Term</option>
+			</select>
+			<select onchange="cmdExec_<%=ID%>('fontname',this[this.selectedIndex].value);">
+				<option selected>Font</option>
+				<option value="Arial">Arial</option>
+				<option value="Arial Black">Arial Black</option>
+				<option value="Arial Narrow">Arial Narrow</option>
+				<option value="Comic Sans MS">Comic Sans MS</option>
+				<option value="Courier New">Courier New</option>
+				<option value="System">System</option>
+				<option value="Tahoma">Tahoma</option>
+				<option value="Times New Roman">Times New Roman</option>
+				<option value="Verdana">Verdana</option>
+				<option value="Wingdings">Wingdings</option>
+			</select>
+			<select onchange="cmdExec_<%=ID%>('fontsize',this[this.selectedIndex].value);">
+				<option selected>Size</option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				<option value="6">6</option>
+				<option value="7">7</option>
+				<option value="8">8</option>
+				<option value="10">10</option>
+				<option value="12">12</option>
+				<option value="14">14</option>
+			</select>
+			<input type="checkbox" onclick="setMode_<%=ID%>(this.checked)" id="HTMLMode_<%=ID%>" name="HTMLMode_<%=ID%>" value="on" <%=HTMLModeState%>><font size="1" style="FONT-SIZE: 8pt">½s¿è 
+				HTML</font>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<div class="cbtn" onClick="cmdExec_<%=ID%>('cut')" onmouseover="button_over_<%=ID%>(this);" onmouseout="button_out_<%=ID%>(this);" onmousedown="button_down_<%=ID%>(this);" onmouseup="button_up_<%=ID%>(this);">
+				<img hspace="1" vspace="1" align="absMiddle" src="<%=module_path%>/HTMLEditor/Cut.gif" alt="Cut">
+			</div>
+		</td>
+		<td>
+			<div class="cbtn" onClick="cmdExec_<%=ID%>('copy')" onmouseover="button_over_<%=ID%>(this);" onmouseout="button_out_<%=ID%>(this);" onmousedown="button_down_<%=ID%>(this);" onmouseup="button_up_<%=ID%>(this);">
+				<img hspace="1" vspace="1" align="absMiddle" src="<%=module_path%>/HTMLEditor/Copy.gif" alt="Copy">
+			</div>
+		</td>
+		<td>
+			<div class="cbtn" onClick="cmdExec_<%=ID%>('paste')" onmouseover="button_over_<%=ID%>(this);" onmouseout="button_out_<%=ID%>(this);" onmousedown="button_down_<%=ID%>(this);" onmouseup="button_up_<%=ID%>(this);">
+				<img hspace="1" vspace="1" align="absMiddle" src="<%=module_path%>/HTMLEditor/Paste.gif" alt="Paste">
+			</div>
+		</td>
+		<td>
+			<div class="cbtn" onClick="cmdExec_<%=ID%>('bold')" onmouseover="button_over_<%=ID%>(this);" onmouseout="button_out_<%=ID%>(this);" onmousedown="button_down_<%=ID%>(this);" onmouseup="button_up_<%=ID%>(this);">
+				<img hspace="1" vspace="1" align="absMiddle" src="<%=module_path%>/HTMLEditor/Bold.gif" alt="Bold">
+			</div>
+		</td>
+		<td>
+			<div class="cbtn" onClick="cmdExec_<%=ID%>('italic')" onmouseover="button_over_<%=ID%>(this);" onmouseout="button_out_<%=ID%>(this);" onmousedown="button_down_<%=ID%>(this);" onmouseup="button_up_<%=ID%>(this);">
+				<img hspace="1" vspace="1" align="absMiddle" src="<%=module_path%>/HTMLEditor/Italic.gif" alt="Italic">
+			</div>
+		</td>
+		<td>
+			<div class="cbtn" onClick="cmdExec_<%=ID%>('underline')" onmouseover="button_over_<%=ID%>(this);" onmouseout="button_out_<%=ID%>(this);" onmousedown="button_down_<%=ID%>(this);" onmouseup="button_up_<%=ID%>(this);">
+				<img hspace="1" vspace="1" align="absMiddle" src="<%=module_path%>/HTMLEditor/Under.gif" alt="Underline">
+			</div>
+		</td>
+		<td>
+			<div class="cbtn" onClick="cmdExec_<%=ID%>('justifyleft')" onmouseover="button_over_<%=ID%>(this);" onmouseout="button_out_<%=ID%>(this);" onmousedown="button_down_<%=ID%>(this);" onmouseup="button_up_<%=ID%>(this);">
+				<img hspace="1" vspace="1" align="absMiddle" src="<%=module_path%>/HTMLEditor/Left.gif" alt="Justify Left">
+			</div>
+		</td>
+		<td>
+			<div class="cbtn" onClick="cmdExec_<%=ID%>('justifycenter')" onmouseover="button_over_<%=ID%>(this);" onmouseout="button_out_<%=ID%>(this);" onmousedown="button_down_<%=ID%>(this);" onmouseup="button_up_<%=ID%>(this);">
+				<img hspace="1" vspace="1" align="absMiddle" src="<%=module_path%>/HTMLEditor/Center.gif" alt="Center">
+			</div>
+		</td>
+		<td>
+			<div class="cbtn" onClick="cmdExec_<%=ID%>('justifyright')" onmouseover="button_over_<%=ID%>(this);" onmouseout="button_out_<%=ID%>(this);" onmousedown="button_down_<%=ID%>(this);" onmouseup="button_up_<%=ID%>(this);">
+				<img hspace="1" vspace="1" align="absMiddle" src="<%=module_path%>/HTMLEditor/Right.gif" alt="Justify Right">
+			</div>
+		</td>
+		<td>
+			<div class="cbtn" onClick="cmdExec_<%=ID%>('insertorderedlist')" onmouseover="button_over_<%=ID%>(this);" onmouseout="button_out_<%=ID%>(this);" onmousedown="button_down_<%=ID%>(this);" onmouseup="button_up_<%=ID%>(this);">
+				<img hspace="2" vspace="1" align="absMiddle" src="<%=module_path%>/HTMLEditor/numlist.GIF" alt="Ordered List">
+			</div>
+		</td>
+		<td>
+			<div class="cbtn" onClick="cmdExec_<%=ID%>('insertunorderedlist')" onmouseover="button_over_<%=ID%>(this);" onmouseout="button_out_<%=ID%>(this);" onmousedown="button_down_<%=ID%>(this);" onmouseup="button_up_<%=ID%>(this);">
+				<img hspace="2" vspace="1" align="absMiddle" src="<%=module_path%>/HTMLEditor/bullist.GIF" alt="Unordered List">
+			</div>
+		</td>
+		<td>
+			<div class="cbtn" onClick="cmdExec_<%=ID%>('outdent')" onmouseover="button_over_<%=ID%>(this);" onmouseout="button_out_<%=ID%>(this);" onmousedown="button_down_<%=ID%>(this);" onmouseup="button_up_<%=ID%>(this);">
+				<img hspace="2" vspace="1" align="absMiddle" src="<%=module_path%>/HTMLEditor/deindent.gif" alt="Decrease Indent">
+			</div>
+		</td>
+		<td>
+			<div class="cbtn" onClick="cmdExec_<%=ID%>('indent')" onmouseover="button_over_<%=ID%>(this);" onmouseout="button_out_<%=ID%>(this);" onmousedown="button_down_<%=ID%>(this);" onmouseup="button_up_<%=ID%>(this);">
+				<img hspace="2" vspace="1" align="absMiddle" src="<%=module_path%>/HTMLEditor/inindent.gif" alt="Increase Indent">
+			</div>
+		</td>
+		<td>
+			<div class="cbtn" onClick="foreColor_<%=ID%>()" onmouseover="button_over_<%=ID%>(this);" onmouseout="button_out_<%=ID%>(this);" onmousedown="button_down_<%=ID%>(this);" onmouseup="button_up_<%=ID%>(this);">
+				<img hspace="2" vspace="1" align="absMiddle" src="<%=module_path%>/HTMLEditor/fgcolor.gif" alt="Forecolor">
+			</div>
+		</td>
+		<td>
+			<div class="cbtn" onClick="cmdExec_<%=ID%>('createLink')" onmouseover="button_over_<%=ID%>(this);" onmouseout="button_out_<%=ID%>(this);" onmousedown="button_down_<%=ID%>(this);" onmouseup="button_up_<%=ID%>(this);">
+				<img hspace="2" vspace="1" align="absMiddle" src="<%=module_path%>/HTMLEditor/Link.gif" alt="Link">
+			</div>
+		</td>
+		<td>
+			<div class="cbtn" onClick="insertImage_<%=ID%>()" onmouseover="button_over_<%=ID%>(this);" onmouseout="button_out_<%=ID%>(this);" onmousedown="button_down_<%=ID%>(this);" onmouseup="button_up_<%=ID%>(this);">
+				<img hspace="2" vspace="1" align="absMiddle" src="<%=module_path%>/HTMLEditor/Image.gif" alt="Image">
+			</div>
+		</td>
+		<td>
+			<div class="cbtn" onClick="insertRuler_<%=ID%>()" onmouseover="button_over_<%=ID%>(this);" onmouseout="button_out_<%=ID%>(this);" onmousedown="button_down_<%=ID%>(this);" onmouseup="button_up_<%=ID%>(this);">
+				<img hspace="2" vspace="1" align="absMiddle" src="<%=module_path%>/HTMLEditor/HR.gif" alt="Ruler">
+			</div>
+		</td>
+		<td width="100%">
+		</td>
+	</tr>
+	<tr>
+		<td class="Normal" colspan="18">
+			<input id="tbEditTextId" name="<%=ID%>" type="hidden" value="<%=tbEditText%>">
+		</td>
+	</tr>
+	<tr>
+		<td height="100%" colspan="18">
+			<DIV id='idContent_<%=ID%>' onkeyup="EditTextCopy_<%=ID%>();" contentEditable="true" width="100%" style="BORDER-RIGHT: 1px ridge; BORDER-TOP: 1px ridge; BORDER-LEFT: 1px ridge; BORDER-BOTTOM: 1px ridge; HEIGHT: 100%; BACKGROUND-COLOR: white">
+				<%=EditText%>
+			</DIV>
+		</td>
+	</tr>
+</table>
+

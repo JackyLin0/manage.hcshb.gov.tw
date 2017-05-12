@@ -1,0 +1,102 @@
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!--
+程式名稱：nodeadd.jsp
+說明：應用系統管理(新增)
+開發者：chmei
+開發日期：97.02.11
+修改者：
+修改日期：
+版本：ver1.0
+-->
+
+<%@ page import="java.io.*" %>
+<%@ page import="java.util.*" %>
+<%@ page import="sysview.zhiren.ldap.SvLdap" %>
+<%@ page import="sysview.zhiren.ldap.netscape.SvNetscapeLdap" %>
+<%@ page import="tw.com.sysview.dba.*" %>
+
+<%@ include file="addatt.jsp"%>
+<%
+  String errMsg="0";
+
+  //取系統路徑
+  String sysRoot = (String) application.getRealPath("");
+  
+  //判斷OS版本
+  String Ldap_PATH = "";
+  if ( sysRoot.indexOf("/") == -1 )
+	   Ldap_PATH = sysRoot + "\\WEB-INF\\ldap.properties";
+  else
+	  Ldap_PATH = sysRoot + "/WEB-INF/ldap.properties";
+
+  Properties ldap = new Properties();
+  ldap.load(new FileInputStream(Ldap_PATH) );
+  String ds_server = ldap.getProperty("ds_server");
+  String port = ldap.getProperty("ds_port");
+  String ds_user = ldap.getProperty("ds_user");
+  String ds_pwd = ldap.getProperty("ds_pwd");
+  
+  int ds_port=Integer.parseInt(port);
+
+  String dn =  ( String )request.getParameter( "dn" );
+
+  String website = ( String )request.getParameter( "website" );
+  String islanguage = ( String )request.getParameter( "islanguage" );
+  
+  String mdn = "ou=" + ou + "," + dn;
+  
+  
+  SvNetscapeLdap entry = new SvNetscapeLdap( ds_server, ds_port, ds_user, ds_pwd, SvLdap.ENCODEUNICODE );
+  
+  if ( entry.query( mdn, "dn,ou", SvLdap.QUERYSUBTREE ))
+  {%>
+      <script>
+         alert( " 此應用系統代號已存在,請修正 !! " )
+         history.go(-1)
+      </script>
+  <%}else{
+	  if ( !entry.add( mdn, addatt, attrs )) {
+		  errMsg = "ds addNew errMsg:" + entry.getErrorMsg();
+	  }else{
+    	  errMsg = "本應用系統已新增成功!!";
+    	  if ( website != null ) {
+    		  if ( website.equals("Y") ) {
+    			  String logincn = ( String )session.getAttribute( "logincn" );
+    			  if ( logincn == null || logincn.equals("null") )
+    				  logincn = "sysview";
+    			  
+        		  WebSiteData iweb = new WebSiteData();           		  
+        		  iweb.setWebsitedn(mdn);
+        		  iweb.setWebsitename(sysname);        		  
+        		  iweb.setIslanguage(islanguage);
+        		  iweb.setStartusing(startusing); 
+        		  boolean webrtn = iweb.create();
+        		  if ( webrtn ) {
+        			  String punitweb = "";        		  
+            		  if ( request.getParameterValues( "punitweb" ) != null )
+            		  {
+            			  String ary_punitweb[] = request.getParameterValues( "punitweb" );	  
+            			  for ( int i=0; i<ary_punitweb.length; i++ )
+            			  {
+            				  String mpunitweb = ary_punitweb[i].replace('*',',');
+            				  if ( punitweb.equals("") )
+            					  punitweb = mpunitweb;
+            				  else
+            					  punitweb = punitweb + "||" + mpunitweb;
+            			  }
+            		  }	 
+        		  }
+        	  }
+    	  }
+	  }	  
+  }      
+%>
+
+<script>
+    alert("<%=errMsg%>")
+    parent.treeleft.location.reload();
+    window.location.href="node.jsp?dn=<%=dn%>";
+</script>
+     

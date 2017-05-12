@@ -1,0 +1,45 @@
+.t1 {
+	FONT-WEIGHT: normal; FONT-SIZE: 13px; COLOR: #006699; FONT-STYLE: normal; FONT-FAMILY: Arial, Helvetica, sans-serif; FONT-VARIANT: normal; TEXT-DECORATION: none
+
+}
+.t2 {
+	FONT-WEIGHT: normal; FONT-SIZE: 11px; COLOR: #333333; FONT-STYLE: normal; FONT-FAMILY: Arial, Helvetica, sans-serif; FONT-VARIANT: normal; TEXT-DECORATION: none
+}
+.f1 {
+	FONT-WEIGHT: bold; FONT-SIZE: 15px; COLOR: #1f60a4; FONT-STYLE: normal; FONT-FAMILY: "sө"; TEXT-DECORATION: none
+}
+.f2 {
+	FONT-WEIGHT: normal; FONT-SIZE: 13px; COLOR: #000000; FONT-FAMILY: "sө"; TEXT-DECORATION: none
+}
+.f6 {
+	FONT-WEIGHT: bold; FONT-SIZE: 13px; COLOR: #1f60a4; FONT-STYLE: normal; FONT-FAMILY: "sө"; TEXT-DECORATION: none
+}
+.d1 {
+height:96px;
+	BACKGROUND-COLOR: #ddfdff
+
+}
+.d2 {
+	BACKGROUND-COLOR: #66ccff
+}
+.d3 {
+	BACKGROUND-COLOR: #ffffff
+}
+.f3 {
+	FONT-WEIGHT: normal; FONT-SIZE: 12px; COLOR: #cc0000; FONT-FAMILY: "sө"; TEXT-DECORATION: none
+}
+.f4 {
+	FONT-WEIGHT: normal; FONT-SIZE: 12px; COLOR: #339900; FONT-FAMILY: "sө"; TEXT-DECORATION: none
+}
+.t3 {
+	FONT-WEIGHT: normal; FONT-SIZE: 12px; COLOR: #666666; FONT-STYLE: normal; FONT-FAMILY: "sө"; FONT-VARIANT: normal; TEXT-DECORATION: none
+}
+.f5 {
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 25px;
+	COLOR: #1f60a4;
+	FONT-STYLE: normal;
+	FONT-FAMILY: "新細明體";
+	TEXT-DECORATION: none;
+	line-height: 72px;
+}

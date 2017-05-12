@@ -1,0 +1,193 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!--
+程式名稱：menu_addsave.jsp
+說明：選單目錄管理
+開發者：chmei
+開發日期：97.02.18
+修改者：
+修改日期：
+版本：ver1.0
+-->
+
+<%@ page import="java.io.*" %>
+<%@ page import="java.util.*" %>
+<%@ page import="sysview.zhiren.servlet.mime.SvMultipartRequest" %>
+<%@ page import="sysview.zhiren.function.*" %>
+<%@ page import="tw.com.sysview.dba.*" %>
+
+
+<%
+  //取檔案上傳路徑，位於各局室content folder 之下
+  String webdn = ( String )session.getAttribute("webdn");
+  String[] ary_webdn = SvString.split(webdn,",");
+  String org = SvString.right(ary_webdn[2],"=");
+  
+  //取設定檔路徑
+  String sysRoot = (String) getServletConfig().getServletContext().getRealPath("");
+
+  //判斷OS版本
+  String Siiemap_PATH = "";
+  String Menu_PATH = "";
+  if ( sysRoot.indexOf("/") == -1 ) {
+	  Siiemap_PATH = sysRoot + "\\WEB-INF\\updatesitemap.properties";
+	  Menu_PATH = sysRoot + "\\WEB-INF\\menu.properties";
+  }else{
+	  Siiemap_PATH = sysRoot + "/WEB-INF/updatesitemap.properties";
+	  Menu_PATH = sysRoot + "/WEB-INF/menu.properties";
+  }
+
+  Properties sitemap = new Properties();
+  sitemap.load(new FileInputStream(Siiemap_PATH) );
+  String sitemappath = sitemap.getProperty("updatepath");
+  
+  Properties mess = new Properties();
+  mess.load(new FileInputStream(Menu_PATH) );
+  String menupath = mess.getProperty("menupath");    
+
+  String mflag = ( String )request.getParameter( "mflag" );
+  
+  String filepath = menupath + "/" + org + "/";
+  if ( mflag.equals("1") ) {
+	  filepath = filepath + "ap";
+  }if ( mflag.equals("3") ) {
+	  filepath = filepath + "content";
+  }
+ 
+  //目錄不存在時，建立目錄
+  File f = new File(filepath);  
+  if (!f.exists()) 
+     f.mkdirs();
+
+  //接受上一頁Form內的所有欄位值
+  SvMultipartRequest req = new SvMultipartRequest(request);  
+
+  if ( !req.process(filepath) )
+  { 
+	 System.out.println(req.getErrorMsg());
+     session.setAttribute("AlertMessage", "檔案無法上傳！");
+     response.sendRedirect("menu.jsp");
+     return;
+  }
+
+  MenuData obj = new MenuData();    
+  
+  //動態程式及自行編輯網頁
+  File[] reqfile = req.getFiles();  
+  //取得上傳檔案的個數 
+  int num = reqfile.length;    
+  
+  //宣告陣列
+  String filename[] = new String[1];  
+  String originfile[] = new String[1];
+  String linkfile = "";
+  for (int i=0; i<num; i++)
+  {
+    filename[i] = reqfile[i].getName();      
+    originfile[i] = req.getOriginFile(filename[i]);
+    if ( i==0 ) {
+    	obj.setServerfile1(filename[i]);
+    	obj.setClientfile1(originfile[i]);
+    	linkfile = filename[i];
+    }
+  }  
+  
+  //參數
+  String table = ( String )req.getParameter( "t", "" );
+  String language = ( String )req.getParameter( "language", "" );
+  String title = ( String )req.getParameter( "title", "" );
+  String murl = ( String )req.getParameter( "murl", "");
+  String logindn = ( String )req.getParameter( "logindn", "" );
+  String pagesize = ( String )req.getParameter( "pagesize", "" );
+  String intpage = ( String )req.getParameter( "intpage", "" );
+  
+  String logincn = ( String )session.getAttribute("logincn");
+  
+  //MetaTag
+  String websitedn = ( String )req.getParameter( "websitedn", "" );
+  String table2 = (String)req.getParameter("t2", "");
+  String theme = ( String )req.getParameter( "theme", "" );
+  String cake = ( String )req.getParameter( "cake", "" );
+  String service = ( String )req.getParameter( "service", "" );
+  
+  //form值
+  int islevel = Integer.parseInt(( String )req.getParameter( "islevel", "" ));
+  String islevelcontent = ( String )req.getParameter( "islevelcontent", "" );
+  String mserno = ( String )req.getParameter( "toplevel", "" );
+
+  String startusing = ( String )req.getParameter( "startusing", "" );
+  String showlink = ( String )req.getParameter( "showlink", "" );
+  
+  int fsort = 0;
+  String fsort1 = ( String )req.getParameter( "fsort", "" );
+  if ( fsort1 != null && !fsort1.equals("") )
+	  fsort = Integer.parseInt(fsort1);
+  String target = ( String )req.getParameter( "target", "" );
+
+  //使用網頁版型
+  String islevellink1 = ( String )req.getParameter( "islevellink1", "" );
+   
+  //超連結
+  String islevellink2 = ( String )req.getParameter( "islevellink2", "" );
+  
+  boolean rtn = true ;
+  String errMsg="0";     
+
+  if ( mflag.equals("0") ) {                     //使用網頁版型
+	  obj.setIslevellink(islevellink1);
+  }else if ( mflag.equals("1") || mflag.equals("3") ) {     //動態網頁及自行編輯網頁
+	  String mlink = org + "/" + SvString.lastRight(filepath, "/") + "/" + linkfile;
+	  obj.setIslevellink(mlink);
+  }else if ( mflag.equals("2") ) {               //超連結
+	  obj.setIslevellink(islevellink2);
+  }  
+  
+  obj.setIslevel(islevel);
+  obj.setIslevelcontent(islevelcontent);
+  obj.setFlag(mflag);
+  obj.setTarget(target);
+  obj.setTopserno(mserno);
+  obj.setStartusing(startusing);
+  obj.setFsort(fsort);
+  obj.setShowlink(showlink);
+  obj.setPostname(logincn);
+  obj.setThemeclass(theme);
+  obj.setCakeclass(cake);  
+  obj.setServiceclass(service);
+
+  //執行動作(新增資料)  
+  rtn = obj.create(table);  
+    
+  String showAlert = null;  
+  if ( rtn == false ) {
+	  errMsg = obj.getErrorMsg();
+	  showAlert = "新增失敗！" + errMsg;
+  }else{
+	  showAlert="新增成功！";
+  }
+
+ %>
+
+<form name="mform" action="menu_add.jsp" method="post">
+  <input type="hidden" name="t" value="<%=table%>"/>
+  <input type="hidden" name="title" value="<%=title%>"/>
+  <input type="hidden" name="murl" value="<%=murl%>"/>
+  <input type="hidden" name="logindn" value="<%=logindn%>"/>
+  <input type="hidden" name="pagesize" value="<%=pagesize%>"/>
+  <input type="hidden" name="intpage" value="<%=intpage%>"/>
+  <input type="hidden" name="language" value="<%=language%>"/>
+  <input type="hidden" name="webdn" value="<%=webdn%>"/>
+  <input type="hidden" name="websitedn" value="<%=websitedn%>"/> <!-- metaTag -->
+  <input type="hidden" name="t2" value="<%=table2%>"/> <!-- metaTag -->
+</form>
+ 
+<script>
+   newwin=window.open('../../updatesitemap/updatesitemap.jsp?menudata=<%=table%>','','width=10,height=10,scrollbars=yes,left=10000,top=10000');
+   window.newwin.close();
+   newwin=window.open('<%=sitemappath%>/updatesitemap/updatesitemap.jsp?menudata=<%=table%>','','width=10,height=10,scrollbars=yes,left=10000,top=10000');
+   window.newwin.close();
+   alert("<%=showAlert%>");
+   document.mform.submit();
+</script>  
+ 

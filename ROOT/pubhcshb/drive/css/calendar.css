@@ -1,0 +1,225 @@
+/*日曆式使用*/
+
+.calendar_title {
+
+	font-size:100%;
+
+	color: #004A6F;
+
+	text-decoration: none;
+
+	font-family: Arial, Helvetica, sans-serif;
+
+	line-height: 33px;
+
+	font-weight: bold;
+
+	text-indent: 30px;
+
+	letter-spacing: 0.1em;
+
+}
+
+
+
+.main_font13b{
+
+	font-size:120%;
+
+	font-family: Geneva, Arial, Helvetica, "新細明體";
+
+	color: #333333;
+
+	line-height: 30px;
+
+	font-weight: bold;
+
+	text-decoration: none;
+
+}
+
+
+
+.calendar_month{
+
+	background-image: url(../images/ssl/moth_bg.jpg);
+
+	background-repeat: no-repeat;
+
+	background-position: left top;
+
+	height: 25px;
+
+	width: 75px;
+
+}
+
+.calendar_month2{
+
+	background-image: url(../images/ssl/moth_bg2.jpg);
+
+	background-repeat: no-repeat;
+
+	background-position: left top;
+
+	height: 25px;
+
+	width: 75px;
+
+}
+
+.calendar_fnot{
+
+	font-family: Geneva, Arial, Helvetica, "新細明體";
+
+	font-size: 80%;
+
+	line-height: 25px;
+
+	font-weight: bold;
+
+	color: #FFFFFF;
+
+	text-align: center;
+
+	text-decoration: none;
+
+}
+
+.calendar_fnot A:link{
+
+	font-family: Geneva, Arial, Helvetica, "新細明體";
+
+	line-height: 25px;
+
+	font-weight: bold;
+
+	color: #FFFFFF;
+
+	text-align: center;
+
+	text-decoration: none;
+
+}
+
+.calendar_fnot A:visited{
+
+	font-family: Geneva, Arial, Helvetica, "新細明體";
+
+	line-height: 25px;
+
+	font-weight: bold;
+
+	color: #FFFFFF;
+
+	text-align: center;
+
+	text-decoration: none;
+
+}
+
+.calendar_fnot A:hover{
+
+	font-family: Geneva, Arial, Helvetica, "新細明體";
+
+	line-height: 25px;
+
+	font-weight: bold;
+
+	color: #FFFFFF;
+
+	text-align: center;
+
+	text-decoration: none;
+
+}
+
+.bt {
+
+	color: #099BCC;
+
+	text-decoration: none;
+
+	font-size: 100%;
+
+	font-family: Arial, Helvetica, sans-serif;
+
+	font-weight: bold;
+
+	background-image: url(../images/ssl/bt1.jpg);
+
+	line-height: 27px;
+
+	background-repeat: no-repeat;
+
+	display: block;
+
+	height: 27px;
+
+	width: 35px;
+
+}
+
+a.bt:hover {
+
+	background-image: url(../images/ssl/bt2.jpg);
+
+}
+
+
+
+.day {
+
+	color: #099BCC;
+
+	font-size: 80%;
+
+	font-family: Arial, Helvetica, sans-serif;
+
+	font-weight: bold;
+
+	text-indent: 5px;
+
+}
+
+.in01 {
+
+	color: #333333;
+
+	font-size: 80%;
+
+	font-family: Arial, Helvetica, sans-serif;
+
+	text-decoration: none;
+
+	line-height: 20px;
+
+}
+
+a.in01:hover {
+
+	color: #000099;
+
+	text-decoration: underline;
+
+}
+
+.in02 {
+
+	color: #CC0000;
+
+	font-size: 80%;
+
+	font-family: Arial, Helvetica, sans-serif;
+
+	text-decoration: none;
+
+	line-height: 20px;
+
+	padding-right: 5px;
+
+}
+
+.submentdiv { padding-bottom:0; padding-top:0
+
+}

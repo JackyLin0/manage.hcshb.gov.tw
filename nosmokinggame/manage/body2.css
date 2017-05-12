@@ -1,0 +1,51 @@
+@charset "utf-8";
+
+body {
+	font-size: 12px;
+	letter-spacing: 2px;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-attachment: scroll;
+	background-color: #00BAE9;
+	background-image: url(images/pic01.jpg);
+}
+table {
+	font-size: 12px;
+	color: #666666;
+	letter-spacing: 2px;
+	line-height: 18px;
+}
+.td {
+	font-size: 12px;
+	color: #FFFFFF;
+}
+.td1 {
+	font-size: 12px;
+	color: #FF9900;
+}
+
+
+
+
+
+
+
+
+a:link {
+	color: #FFFF00;
+	text-decoration: none;
+}
+
+a:visited {
+	color: #FFFF00;
+	text-decoration: none;
+}
+a:hover {
+	color: #00FFFF;
+	text-decoration: underline;
+}
+
+a:active {
+	color: #00FFFF;
+	text-decoration: underline;
+}

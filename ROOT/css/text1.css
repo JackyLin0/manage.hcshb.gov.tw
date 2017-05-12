@@ -1,0 +1,264 @@
+.body {
+	margin-left: 0px;
+	margin-top: 0px;SCROLLBAR-FACE-COLOR: #e8e8e8; SCROLLBAR-HIGHLIGHT-COLOR: #ffffff; SCROLLBAR-SHADOW-COLOR: #e8e8e8; SCROLLBAR-3DLIGHT-COLOR: #cccccc; SCROLLBAR-ARROW-COLOR: #868686; SCROLLBAR-TRACK-COLOR: #f0f0f0; SCROLLBAR-DARKSHADOW-COLOR: #b3b3b3;
+}
+.left_bg {
+	background-image: url(../images/left1.jpg);
+	background-repeat: no-repeat;
+	background-position: left top;
+	height: 100%;
+}
+
+.butonbg{
+	azimuth:right;
+	CLEAR: both;
+	margin-top:0px; margin-left:auto
+	margin-right:0px;
+	margin-bottom:0px;
+}
+.butonbg a:visited {
+	background-image:url(../images/02.jpg);
+	font-size:100%;
+	color: #333333;
+	text-decoration:none;
+	font-family: "Times New Roman", Times, serif;
+	height:33px;
+	width:177px;
+	white-space: nowrap;
+} 
+.butonbg a:hover {
+	background-image:url(../images/01.jpg);
+	text-decoration:none;
+	height:33px;
+	width:177px;
+	white-space: nowrap;
+} 
+.butonbg a:link {
+	background-image:url(../images/02.jpg);
+	text-decoration:none;
+	height:33px;
+	width:177px;
+	white-space: nowrap;
+}
+
+.select { font-family: "Verdana", "Arial", "sө", "ө"; font-size: 8pt; color: #32629E; background-color: #FFFFFF} 
+.select-2 { font-family: "Verdana", "Arial", "sө", "ө"; font-size: 8pt; color: #FFFFFF; background-color: #999999} 
+.textarea { font-family: "Verdana", "Arial", "sө", "ө"; font-size: 8pt; color: #666666; background-color: #FFFFFF; border: 1px #ABACAC solid}
+
+
+.ta {
+	background-repeat: no-repeat;
+	background-position: top;
+} 
+.T8-5c {
+	sfont-size: 8.5pt;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	line-height: 16px;
+	color: #FF9900;
+	letter-spacing: 1px;
+	font-weight: normal;
+}
+.T8-5 {font-size: 8.5pt;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	line-height: 16px;
+	color: #999999;
+	letter-spacing: 1px;
+}  
+.T9 {
+	font-size: 9pt;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	line-height: 16px;
+	color: #666666;
+	letter-spacing: 1px
+} 
+.T10 {
+	font-size: 10pt;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	line-height: 18px;
+	color: #555555;
+	letter-spacing: 2px;
+} 
+.T10-b {
+	font-size: 10pt;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	line-height: 18px;
+	color: #555555;
+	letter-spacing: 2px;
+	font-weight: bold;
+} 
+.T11 {font-size: 11pt;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	line-height: 18px;
+	color: #555555;
+	letter-spacing: 2px;
+} 
+.T11b {
+	font-size: 11pt;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	line-height: 18px;
+	color: #333333;
+	letter-spacing: 2px;
+} 
+T11c {
+	font-size: 11pt;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	line-height: 18px;
+	color: #5b8ec3;
+	letter-spacing: 2px;
+	font-weight: bold;
+}
+
+.T12b {
+	font-size: 12pt;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	line-height: 18px;
+	color: #0869B0;
+	letter-spacing: 2px;
+	font-weight: bold;
+} 
+
+a:visited {
+	text-decoration: none;
+	color: #444444;
+} 
+a:hover {
+	text-decoration: none;
+	color: #0066CC;
+} 
+a:link {
+	text-decoration: none;
+	color: #444444;
+} 
+
+A.link-left:visited {
+	FONT-SIZE: 10pt;
+	COLOR: #0099CC;
+	TEXT-DECORATION: none;
+	line-height: 12pt;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	letter-spacing: 1pt;
+} 
+A.link-left:hover {
+	FONT-SIZE: 10pt;
+	COLOR: #0099CC;
+	TEXT-DECORATION: underline;
+	line-height: 12pt;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	letter-spacing: 1pt;
+} 
+A.link-left:link {
+	FONT-SIZE: 10pt;
+	COLOR: #0099CC;
+	TEXT-DECORATION: none;
+	line-height: 12pt;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	letter-spacing: 1pt;
+}
+A.link-left3:visited {
+	FONT-SIZE: 10pt;
+	COLOR: #333333;
+	TEXT-DECORATION: none;
+	line-height: 12pt;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	letter-spacing: 1pt;
+} 
+A.link-left3:hover {
+	FONT-SIZE: 10pt;
+	COLOR: #333333;
+	TEXT-DECORATION: underline;
+	line-height: 12pt;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	letter-spacing: 1pt;
+} 
+A.link-left3:link {
+	FONT-SIZE: 10pt;
+	COLOR: #333333;
+	TEXT-DECORATION: none;
+	line-height: 12pt;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	letter-spacing: 1pt;
+}
+A.link-left2:visited {
+	FONT-SIZE: 10pt;
+	COLOR: #797979;
+	TEXT-DECORATION: none;
+	line-height: 12pt;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	letter-spacing: 1pt;
+} 
+A.link-left2:hover {
+	FONT-SIZE: 10pt;
+	COLOR: #797979;
+	TEXT-DECORATION: underline;
+	line-height: 12pt;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	letter-spacing: 1pt;
+} 
+A.link-left2:link {
+	FONT-SIZE: 10pt;
+	COLOR: #797979;
+	TEXT-DECORATION: none;
+	line-height: 12pt;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	letter-spacing: 1pt;
+}
+
+A.link-title:visited {
+	FONT-SIZE: 11pt;
+	COLOR: #006699;
+	TEXT-DECORATION: none;
+	line-height: 24pt;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	letter-spacing: 1pt;
+	font-weight: bold;
+	padding-left: 10px;
+} 
+A.link-title:hover {
+	FONT-SIZE: 11pt;
+	COLOR: #006699;
+	TEXT-DECORATION: none;
+	line-height: 24pt;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	letter-spacing: 1pt;
+	font-weight: bold;
+	padding-left: 10px;
+} 
+A.link-title:link {
+	FONT-SIZE: 11pt;
+	COLOR: #006699;
+	TEXT-DECORATION: none;
+	line-height: 24pt;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	letter-spacing: 1pt;
+	font-weight: bold;
+	padding-left: 10px;
+}
+A.link-top:visited {
+	FONT-SIZE: 10pt;
+	COLOR: #ffffff;
+	TEXT-DECORATION: none;
+	line-height: 12pt;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	letter-spacing: 1pt;
+	font-weight: bold;
+} 
+A.link-top:hover {
+	FONT-SIZE: 10pt;
+	COLOR: #ffffff;
+	TEXT-DECORATION: underline;
+	line-height: 12pt;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	letter-spacing: 1pt;
+	font-weight: bold;
+} 
+A.link-top:link {
+	FONT-SIZE: 10pt;
+	COLOR: #ffffff;
+	TEXT-DECORATION: none;
+	line-height: 12pt;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	letter-spacing: 1pt;
+	font-weight: bold;
+}
+.md {	BORDER-RIGHT: #b5cbd0 1px solid; BORDER-TOP: #b5cbd0 1px solid; BACKGROUND: #fff; MARGIN-BOTTOM: 10px; BORDER-LEFT: #b5cbd0 1px solid; BORDER-BOTTOM: #b5cbd0 1px solid; ZOOM: 1; background-image:url(../img/mdhd.gif);
+}
