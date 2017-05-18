@@ -61,7 +61,6 @@
     	   
     	   if ( !qlist.getPubunitdn().equals(mpunitdn) ) { %>
     		   arry_mpunitdn["<%=mpunitdn%>"] = "<%=mclass%>";
-    		   arry_mpunitdn[k] = "<%=mclass%>";
     		   <%
     		     mpunitdn = qlist.getPubunitdn();
     		     mclass = "";
@@ -122,12 +121,13 @@
 <script>
   function qryclass(fname)
   {
+  /*
      var thisform = "document.<%=formname%>.<%=colname%>"; 
      var mform = "document.<%=formname%>." + fname;
      var mpunit = eval(mform).value;
      eval(thisform).options.length = 1;
      eval(thisform).options[0].value = "";
-     eval(thisform).options[0].text = "---請選擇---";
+     eval(thisform).options[0].text = "---請選擇---";*/
      ary_mpunit = mpunit.split("||");
      mdata = arry_mpunitdn[ary_mpunit[0]];
      if ( mdata != null ) 
