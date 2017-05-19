@@ -11,21 +11,11 @@
 版本：ver1.0
 -->
 
+<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <title>新竹縣衛生局服務網後端管理系統</title>
 <link href="../../css/text.css" rel="stylesheet" type="text/css"/>
-</head>
-
-<%
-  String logindn = ( String )session.getAttribute("logindn");
-  String pagesize = ( String )request.getParameter( "pagesize" );
-  String intpage = ( String )request.getParameter( "intpage" );
-  String language = ( String )request.getParameter( "language" );
-  
-  String table = ( String )request.getParameter( "t" );
-
-%>  
 
 <script>
   function back()
@@ -81,8 +71,16 @@
            alert("【發布日期】不可大於【截止日期】！");
            document.mform.date1.focus();
            return;       
-           
         }
+		var sdate = document.mform.stdate.value;
+		var edate = document.mform.endate.value;
+		var osDate = new Date(sdate.substr(4,2) + '-' + sdate.substr(6,2) + '-' + sdate.substr(0,4));
+        var oeDate = new Date(edate.substr(4,2) + '-' + edate.substr(6,2) + '-' + edate.substr(0,4));
+		iDays = parseInt(Math.abs(osDate - oeDate) / 1000 / 60 / 60 /24)+1;
+		if ( iDays > 365 ) {
+			alert("【截止日期】，不可超過1年，請重新選擇！");
+			return;
+		}
      }
      if ( document.mform.subject.value == '' )
      {
@@ -118,6 +116,18 @@
   }    
 </script>
 
+</head>
+
+<%
+  String logindn = ( String )session.getAttribute("logindn");
+  String pagesize = ( String )request.getParameter( "pagesize" );
+  String intpage = ( String )request.getParameter( "intpage" );
+  String language = ( String )request.getParameter( "language" );
+  
+  String table = ( String )request.getParameter( "t" );
+
+%>  
+
 <body>
 <form name="mform">
   <input type="hidden" name="t" value="<%=table%>"/>
@@ -142,7 +152,7 @@
     <th colspan="4">資料新增</th>
   </tr>
   <tr class="tr">
-    <td class="T12b" width="20%"><span class="T12red">※</span>發布日期</td>
+    <td class="T12b" width="15%"><span class="T12red">※</span>發布日期</td>
     <td colspan="3">
       <jsp:include page="../../pubprogram/choicedate.jsp"> 
           <jsp:param name="buttonname" value="date1"/>
@@ -152,14 +162,14 @@
     </td>
   </tr>
   <tr>
-    <td class="T12b" width="15%"><span class="T12red">※</span>啟用</td>
+    <td class="T12b"><span class="T12red">※</span>啟用</td>
     <td colspan="3">
-      <input type="radio" name="startusing" value="1" onclick="chg()" checked>永久有效&nbsp;&nbsp;&nbsp;
-      <input type="radio" name="startusing" value="0" onclick="chg()">截止日期
+      <input type="radio" name="startusing" value="1" onclick="chg()" checked />一年有效&nbsp;&nbsp;&nbsp;
+      <input type="radio" name="startusing" value="0" onclick="chg()" />截止日期
     </td>
   </tr>
   <tr id='type' style='display:none'>
-    <td class="T12b" width="20%"><span class="T12red">※</span>截止日期</td>
+    <td class="T12b"><span class="T12red">※</span>截止日期</td>
     <td colspan="3">
       <jsp:include page="../../pubprogram/choicedate.jsp"> 
           <jsp:param name="buttonname" value="date2"/>
@@ -206,8 +216,8 @@
   <tr class="tr">
     <td valign="top" class="T12b">詳細內容</td>
     <td colspan="3">
-      <textarea name="content" cols="80" rows="18"></textarea>
-      <br><span class="T10">(不可超過1000個中文字）</span>
+      <textarea name="content" cols="78" rows="12"></textarea>
+      <br /><span class="T10">(不可超過1000個中文字）</span>
     </td>
   </tr>
   <tr>
@@ -231,7 +241,7 @@
   </tr>
 </table>
 
-<p><div align="left"><a class="md" href="#top">回頁首</a></div>
+<p></p><div align="left"><a class="md" href="#top">回頁首</a></div>
 
 </form>
 </body>

@@ -52,12 +52,15 @@
   
   function save()
   {
+  	   id = document.getElementById('test')	 
      if ( document.mform.stdate.value == '' )
      {
         alert("【發布日期】欄位，不可空白，請選擇！");
+     	  id.setText("【發布日期】欄位，不可空白，請選擇！");
         document.mform.date1.focus();
         return;     
      }
+     
      if ( document.mform.startusing[1].checked ) 
      {
         if ( document.mform.endate.value == '' )
@@ -88,16 +91,16 @@
         document.mform.subject.focus();
         return;
      }
-     if ( document.mform.punit.value == '' )
+     if ( document.mform.qpunit.value == '' )
      {
         alert("【發布單位】欄位，不可空白，請選擇！");
-        document.mform.punit.focus();
+        document.mform.qpunit.focus();
         return;
      }
-     if ( document.mform.mclass.value == '' )
+     if ( document.mform.qclass.value == '' )
      {
         alert("【分類】欄位，不可空白，請選擇！");
-        document.mform.mclass.focus();
+        document.mform.qclass.focus();
         return;
      }
      if ( document.mform.relateurl.value != 'http://' && document.mform.relateurl.value != '' ) 
@@ -109,7 +112,7 @@
            return;
         }
      }
-     
+ 
      document.mform.action = "statistics101_addsave.jsp";
      document.mform.method = "post";
      document.mform.submit();
@@ -123,12 +126,14 @@
   String pagesize = ( String )request.getParameter( "pagesize" );
   String intpage = ( String )request.getParameter( "intpage" );
   String language = ( String )request.getParameter( "language" );
-  
+  String qpunit = (String)request.getParameter("qpunit");
   String table = ( String )request.getParameter( "t" );
+ //out.print(qpunit);
 
 %>  
 
 <body>
+ 
 <form name="mform">
   <input type="hidden" name="t" value="<%=table%>"/>
   <input type="hidden" name="logindn" value="<%=logindn%>"/>
@@ -196,20 +201,22 @@
     <td class="T12b"><span class="T12red">※</span>發佈單位</td>
     <td colspan="3">
       <jsp:include page="../../pubprogram/qunit.jsp">
-          <jsp:param name="colname" value="punit"/>
-          <jsp:param name="language" value="ch"/>
-          <jsp:param name="onchange" value="onchange=qryclass('punit')"/>
+      <jsp:param name="colname" value="qpunit"/>
+      <jsp:param name="language" value="ch"/>
+      <jsp:param name="datavalue" value="<%=qpunit%>"/>
+      <jsp:param name="onchange" value="onchange=qryclass('qpunit')"/>
       </jsp:include>
     </td>
   </tr>  
   <tr>
     <td class="T12b"><span class="T12red">※</span>分類</td>
     <td colspan="3">
-      <jsp:include page="../../pubprogram/qclass.jsp">
+      <jsp:include page="../../pubprogram/qclass1.jsp">
           <jsp:param name="formname" value="mform"/>
           <jsp:param name="tablename" value="StatisticsClass"/>
-          <jsp:param name="colname" value="mclass"/>
-          <jsp:param name="pcolname" value="punit"/>
+          <jsp:param name="colname" value="qclass"/>
+          <jsp:param name="pcolname" value="qpunit"/>
+          <jsp:param name = "datavalue" value=""/>
       </jsp:include>           
     </td>
   </tr>

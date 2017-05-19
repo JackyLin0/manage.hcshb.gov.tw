@@ -1,5 +1,4 @@
-﻿
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <!--
@@ -27,6 +26,7 @@
   String tablename = ( String )request.getParameter( "tablename" );
   String colname = ( String )request.getParameter( "colname" );
   String pcolname = ( String )request.getParameter( "pcolname" );
+
   String onchange1 = ( String )request.getParameter( "onchange1" );
   if ( onchange1 == null )
 	  onchange1 = "";
@@ -42,6 +42,7 @@
   ClassData qclassname = new ClassData();
   ArrayList<Object> qlists = qclassname.findByday(tablename);  
   int rcount = qclassname.getAllrecordCount();
+
 %>
 
 
@@ -78,9 +79,10 @@
   var thisform = "document.<%=formname%>.<%=colname%>";
   var mform = "document.<%=formname%>"
   var mpunit = eval(mform).<%=pcolname%>.value; 
-  /*eval(thisform).options.length = 1;
+
+  eval(thisform).options.length = 1;
   eval(thisform).options[0].value = "";
-  eval(thisform).options[0].text = "---請選擇---";*/
+  eval(thisform).options[0].text = "---請選擇---";
   
   ary_mpunit = mpunit.split("||");
   marypunit = ary_mpunit[0];
@@ -98,18 +100,19 @@
   if ( mdata != null ) 
   {
      array_mdata = mdata.split(",");      
-   // eval(thisform).options.length = array_mdata.length+1;
+     eval(thisform).options.length = array_mdata.length+1;
       
      for ( k=0; k<array_mdata.length; k++ )
      { 
         len = array_mdata[k].indexOf("-");
         arry_class = array_mdata[k].substr(0,len);
-     //   eval(thisform).options[k+1].value=array_mdata[k];
-      //  eval(thisform).options[k+1].text=array_mdata[k].substr(len+1);
+        eval(thisform).options[k+1].value=array_mdata[k];
+        eval(thisform).options[k+1].text=array_mdata[k].substr(len+1);
+
         <%
           if ( !datavalue.equals("") ) { %>
         	  if ( arry_class == "<%=ary_qclass[0]%>" )
-        //	     eval(thisform).options[k+1].selected=true;
+        	     eval(thisform).options[k+1].selected=true;
           <%}%>
      }   
   }
@@ -118,11 +121,11 @@
 <script>
   function qryclass(fname)
   {
-  
+  /*
      var thisform = "document.<%=formname%>.<%=colname%>"; 
      var mform = "document.<%=formname%>." + fname;
      var mpunit = eval(mform).value;
-  /*   eval(thisform).options.length = 1;
+     eval(thisform).options.length = 1;
      eval(thisform).options[0].value = "";
      eval(thisform).options[0].text = "---請選擇---";*/
      ary_mpunit = mpunit.split("||");
@@ -152,4 +155,3 @@
 <select name="<%=colname%>" <%=onchange1%>>
    <option value="">---請選擇---</option>
 </select>
- 

@@ -185,14 +185,13 @@
       <jsp:param name="onchange" value="onchange=qryclass('qpunit')"/>
   </jsp:include>&nbsp;&nbsp;&nbsp;
   <span class="T11b">分類</span>
-  <jsp:include page="../../pubprogram/qclass1.jsp">
+   <jsp:include page="../../pubprogram/qclass1.jsp">
       <jsp:param name="formname" value="mform"/>
       <jsp:param name="tablename" value="StatisticsClass"/>
       <jsp:param name="colname" value="qclass"/>
       <jsp:param name="pcolname" value="qpunit"/>
       <jsp:param name="datavalue" value="<%=qclass%>"/>
   </jsp:include>&nbsp;&nbsp;&nbsp;
-  
   <span class="T11b">標題</span>
   <input name="keyword" type="text" class="lInput01" size="15" value="<%=(keyword.equals("") ? "請輸入關鍵字" : keyword)%>" onFocus="javascript: if (this.value=='請輸入關鍵字') this.value='';" onBlur="javascript: if(this.value=='') this.value='請輸入關鍵字';" />
   &nbsp;&nbsp;&nbsp;<a class="md2" href="javascript:qry()">查   詢</a>&nbsp;

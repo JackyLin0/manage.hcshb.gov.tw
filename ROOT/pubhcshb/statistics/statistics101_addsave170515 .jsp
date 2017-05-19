@@ -26,15 +26,13 @@
   String intpage = ( String )request.getParameter( "intpage" );
   String murl = ( String )request.getParameter( "murl" );
   String language = ( String )request.getParameter( "language" );
+  
   String logincn = ( String )session.getAttribute( "logincn" );
-	
-  out.print(table+":"+title+":"+logindn+":"+pagesize); 	
 
   //form值
   String stdate = ( String )request.getParameter( "stdate" );
   String startusing = ( String )request.getParameter( "startusing" );
   String endate = ( String )request.getParameter( "endate" );
-  
   if ( startusing.equals("1") ) {
 	  SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
 	  Calendar specialDate = Calendar.getInstance();

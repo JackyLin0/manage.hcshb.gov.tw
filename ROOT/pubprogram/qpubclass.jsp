@@ -24,12 +24,11 @@
 <%@ page import="tw.com.sysview.dba.*" %>
 
 <%
-
   String tablename = ( String )request.getParameter( "tablename" );
   String classcolname = ( String )request.getParameter( "colname" );
   String language = ( String )request.getParameter( "language" );
+
   String classvalue = ( String )request.getParameter( "datavalue" );
-  out.print(""+language);	
   if ( classvalue == null )
 	  classvalue="";
  
@@ -40,17 +39,16 @@
   ClassData qclassname = new ClassData();
   ArrayList<Object> qlists = qclassname.findByday(tablename);  
   int rcount = qclassname.getAllrecordCount();
-	
- 
+
+
 %>
 
 <body>
+
 <select name="<%=classcolname%>">
   <option value="">---請選擇---</option>
   <%
-    out.println("qlists: "+qlists);
     if ( qlists != null ) {
-    out.println("rcount: "+rcount);
     	for ( int i=0; i<rcount; i++ ) {
     		ClassData qlist = ( ClassData )qlists.get( i );
     		String datavalue = qlist.getSerno() + "-" + qlist.getClassname();
@@ -63,6 +61,7 @@
     	<%}
     } %>
 </select>
+
 </body>
 </html>
 
